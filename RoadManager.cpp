@@ -210,7 +210,7 @@ void RoadManager::generateNewVisual()
     {
         if (roadRoadChunk.road != it->road ||
             (roadRoadChunk.road && roadRoadChunk.roadChunk.second+1 != it->roadChunk.first))
-        { // it is not continous road, switch
+        { // it is not continuous road, switch
             if (roadRoadChunk.road)
             { // road exist
                 visualRoadListNew.push_back(new VisualRoad(roadRoadChunk));

@@ -55,7 +55,7 @@ static const char* typeCodes[] =
 
 OIS::JoyStickState KeyConfig::centralJoystickState;
 
-KeyConfig* KeyConfig::getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickState& joystickState, float deadZone, bool continous)
+KeyConfig* KeyConfig::getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickState& joystickState, float deadZone, bool continuous)
 {
     KeyConfig* ret = 0;
 
@@ -75,7 +75,7 @@ KeyConfig* KeyConfig::getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickS
         if (keyboard->isKeyDown((OIS::KeyCode)i))
         {
             ret = new KeyConfigKeyboard();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = i;
             dprintf(MY_DEBUG_INFO, "keyboard assign: %u\n", i);
             return ret;
@@ -87,7 +87,7 @@ KeyConfig* KeyConfig::getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickS
         if (joystickState.mButtons[i])
         {
             ret = new KeyConfigJoystickButton();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = i;
             dprintf(MY_DEBUG_INFO, "joystick button assign: %u\n", i);
             return ret;
@@ -100,7 +100,7 @@ KeyConfig* KeyConfig::getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickS
         {
             ret = new KeyConfigJoystickPov();
             ret->key = i;
-            ret->continous = continous;
+            ret->continuous = continuous;
             ((KeyConfigJoystickPov*)ret)->key2 = joystickState.mPOV[i].direction;
             dprintf(MY_DEBUG_INFO, "joystick pov assign: %u %x\n", i, joystickState.mPOV[i].direction);
             return ret;
@@ -201,14 +201,14 @@ KeyConfig* KeyConfig::getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickS
     return ret;
 }
 
-KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key, unsigned int p_key2, int p_from, int p_to, bool continous)
+KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key, unsigned int p_key2, int p_from, int p_to, bool continuous)
 {
     switch (p_type)
     {
         case KeyConfig::Keyboard:
         {
             KeyConfigKeyboard* ret = new KeyConfigKeyboard();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = p_key;
             return ret;
             break;
@@ -216,7 +216,7 @@ KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key,
         case KeyConfig::JoystickButton:
         {
             KeyConfigJoystickButton* ret = new KeyConfigJoystickButton();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = p_key;
             return ret;
             break;
@@ -224,7 +224,7 @@ KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key,
         case KeyConfig::JoystickAxis:
         {
             KeyConfigJoystickAxis* ret = new KeyConfigJoystickAxis();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = p_key;
             ret->from = p_from;
             ret->to = p_to;
@@ -234,7 +234,7 @@ KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key,
         case KeyConfig::JoystickSliderX:
         {
             KeyConfigJoystickSliderX* ret = new KeyConfigJoystickSliderX();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = p_key;
             ret->from = p_from;
             ret->to = p_to;
@@ -244,7 +244,7 @@ KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key,
         case KeyConfig::JoystickSliderY:
         {
             KeyConfigJoystickSliderY* ret = new KeyConfigJoystickSliderY();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = p_key;
             ret->from = p_from;
             ret->to = p_to;
@@ -254,7 +254,7 @@ KeyConfig* KeyConfig::getKeyConfig(KeyConfig::type_t p_type, unsigned int p_key,
         case KeyConfig::JoystickPov:
         {
             KeyConfigJoystickPov* ret = new KeyConfigJoystickPov();
-            ret->continous = continous;
+            ret->continuous = continuous;
             ret->key = p_key;
             ret->key2 = p_key2;
             return ret;
@@ -272,7 +272,7 @@ void KeyConfig::recalibrate(OIS::JoyStick* joystick)
 
 // class KeyConfig
 KeyConfig::KeyConfig(type_t p_type)
-    : continous(true), active(false), lastActive(false), type(p_type), key((unsigned int)-1)
+    : continuous(true), active(false), lastActive(false), type(p_type), key((unsigned int)-1)
 {
 }
 
@@ -284,7 +284,7 @@ float KeyConfig::getPercentage(int state)
 {
     bool bstate = state != 0;
     lastActive = active;
-    if (continous)
+    if (continuous)
     {
         active = bstate;
         return active ? 1.0f : 0.0f;

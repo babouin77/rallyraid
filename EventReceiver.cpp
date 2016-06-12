@@ -67,7 +67,7 @@ EventReceiver::EventReceiver()
 
     KeyProperty kp;
     kp.primaryKeyConfig = kp.secondaryKeyConfig = 0;
-    kp.continous = true;
+    kp.continuous = true;
     keyNameMap["accelerate"] = ACCELERATE;
     kp.keyLongName = "Accelerate";
     keyMap[ACCELERATE] = kp;
@@ -114,7 +114,7 @@ EventReceiver::EventReceiver()
     kp.keyLongName = "Reverse gear";
     keyMap[GEAR_R] = kp;
 
-    kp.continous = false;
+    kp.continuous = false;
     keyNameMap["physics"] = PHYSICS;
     kp.keyLongName = "Switch Physics on/off";
     keyMap[PHYSICS] = kp;
@@ -368,11 +368,11 @@ void EventReceiver::loadKeyMapping()
             assert(kn < NUMBER_OF_KEYNAMES);
             if (primary)
             {
-                keyMap[kn].primaryKeyConfig = KeyConfig::getKeyConfig((KeyConfig::type_t)p_type, p_key, p_key2, p_from, p_to, keyMap[kn].continous);
+                keyMap[kn].primaryKeyConfig = KeyConfig::getKeyConfig((KeyConfig::type_t)p_type, p_key, p_key2, p_from, p_to, keyMap[kn].continuous);
             }
             if (secondary)
             {
-                keyMap[kn].secondaryKeyConfig = KeyConfig::getKeyConfig((KeyConfig::type_t)s_type, s_key, s_key2, s_from, s_to, keyMap[kn].continous);
+                keyMap[kn].secondaryKeyConfig = KeyConfig::getKeyConfig((KeyConfig::type_t)s_type, s_key, s_key2, s_from, s_to, keyMap[kn].continuous);
             }
         }
     }

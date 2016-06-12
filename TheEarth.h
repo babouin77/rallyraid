@@ -54,10 +54,10 @@ public:
     unsigned short getTileHeight(unsigned int x, unsigned int y); // x and y devide by TILE_SCALE
     const irr::video::SColor& getTileTexture(unsigned int x, unsigned int y); // x and y devide by TILE_SCALE
     void getTileHeightAndTexture(unsigned int x, unsigned int y, unsigned short& height, irr::video::SColor& textureColor); // x and y devide by TILE_SCALE
-    const irr::video::SColor& getTileFineTexture(unsigned int x, unsigned int y);   // x and y are not devided by TILE_SCALE, but TILE_FINE_SCALE
-    const irr::video::SColor& getTileFineDensity(unsigned int x, unsigned int y);   // x and y are not devided by TILE_SCALE, but TILE_FINE_SCALE
-    void setTileFineTexture(unsigned int x, unsigned int y, const irr::video::SColor& val = irr::video::SColor()); // x and y are not devided by TILE_SCALE, but TILE_FINE_SCALE
-    void setTileFineDensity(unsigned int x, unsigned int y, const irr::video::SColor& val = irr::video::SColor()); // x and y are not devided by TILE_SCALE, but TILE_FINE_SCALE
+    const irr::video::SColor& getTileFineTexture(unsigned int x, unsigned int y);   // x and y are not divided by TILE_SCALE, but TILE_FINE_SCALE
+    const irr::video::SColor& getTileFineDensity(unsigned int x, unsigned int y);   // x and y are not divided by TILE_SCALE, but TILE_FINE_SCALE
+    void setTileFineTexture(unsigned int x, unsigned int y, const irr::video::SColor& val = irr::video::SColor()); // x and y are not divided by TILE_SCALE, but TILE_FINE_SCALE
+    void setTileFineDensity(unsigned int x, unsigned int y, const irr::video::SColor& val = irr::video::SColor()); // x and y are not divided by TILE_SCALE, but TILE_FINE_SCALE
         
     unsigned short getEarthHeight(unsigned int x, unsigned int y) const;
           // x and y devide by TILE_SCALE * TILE_POINTS_NUM // inline
@@ -77,15 +77,15 @@ public:
 
 private:
     unsigned short getEarthHeight(unsigned int tileNum) const;
-            // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are devided by TILE_SCALE * TILE_POINTS_NUM, inline
+            // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are divided by TILE_SCALE * TILE_POINTS_NUM, inline
     bool getHasDetail(unsigned int tileNum) const;
-                        // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are devided by TILE_SCALE * TILE_POINTS_NUM, inline
+                        // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are divided by TILE_SCALE * TILE_POINTS_NUM, inline
     bool getIsLoaded(unsigned int tileNum) const;
-                         // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are devided by TILE_SCALE * TILE_POINTS_NUM, inline
+                         // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are divided by TILE_SCALE * TILE_POINTS_NUM, inline
     void setIsLoaded(unsigned int tileNum, bool val);
-                         // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are devided by TILE_SCALE * TILE_POINTS_NUM, inline
+                         // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are divided by TILE_SCALE * TILE_POINTS_NUM, inline
     //bool getHasDetailTex(unsigned int tileNum) const;
-                     // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are devided by TILE_SCALE * TILE_POINTS_NUM, inline
+                     // tileNum < xsize*ysize, tileNum = tileX + (xsize*tileY), tileX and tileY are divided by TILE_SCALE * TILE_POINTS_NUM, inline
 
 
 public:
