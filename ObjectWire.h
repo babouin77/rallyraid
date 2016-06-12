@@ -71,7 +71,7 @@ private:
 
     ObjectWireTile**        tiles;
     irr::core::vector2di    lastWireCenter;
-   // devided by objectWireSize
+   // divided by objectWireSize
     globalObjectWire_t      globalObjectWire;
 
 

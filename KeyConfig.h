@@ -34,8 +34,8 @@ public:
     virtual ~KeyConfig();
 
 public:
-    static KeyConfig* getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickState& joystickState, float deadZone, bool continous = true);
-    static KeyConfig* getKeyConfig(type_t p_type, unsigned int p_key, unsigned int p_key2, int p_from, int p_to, bool continous = true);
+    static KeyConfig* getKeyConfig(OIS::Keyboard* keyboard, const OIS::JoyStickState& joystickState, float deadZone, bool continuous = true);
+    static KeyConfig* getKeyConfig(type_t p_type, unsigned int p_key, unsigned int p_key2, int p_from, int p_to, bool continuous = true);
     static void recalibrate(OIS::JoyStick* joystick);
 
 public:
@@ -55,7 +55,7 @@ public:
 
 public:
     irr::core::stringw  name;
-    bool continous;
+    bool continuous;
     bool active;
     bool lastActive;
     type_t type;

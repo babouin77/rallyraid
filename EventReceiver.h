@@ -69,7 +69,7 @@ private:
     };
     struct KeyProperty
     {
-        bool            continous;
+        bool            continuous;
         KeyConfig*      primaryKeyConfig;
         KeyConfig*      secondaryKeyConfig;
         std::string     keyLongName;
